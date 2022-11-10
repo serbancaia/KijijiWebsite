@@ -1,0 +1,36 @@
+{# base.html template. All if not most the templates will extend this html #}
+<div id="site-header">
+  <header>
+    <h1 class="header-element">Kijiji Project</h1>
+    <form action="/item" method="get">
+      {% csrf_token %}
+      <input type="text" name="search" maxlength="200" value="">
+      <input class="header-element" type="submit" value="Search">
+    </form>
+  </header>
+  <nav class="header-element">
+    <a href="{% url 'home' %}" class="link-button">Home</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'accounts:account' %}" class="link-button">Account</a>
+        {% if user.customer.blog.id %}
+            <a href="{% url 'blog:blog' user.customer.blog.id %}" class="link-button">Blog</a>
+        {% endif %}
+        <a href="{% url 'accounts:logout' %}" class="link-button">Logout</a>
+        <a href="{% url 'item_management:item-create' %}" class="link-button">Create Item</a>
+    {% else %}
+        <a href="{% url 'accounts:login' %}" class="link-button">Login</a>
+        <a href="{% url 'accounts:signup' %}" class="link-button">Sign Up</a>
+    {% endif %}
+  </nav>
+  {% block page_title %}
+  {% endblock %}
+</div>
+<div id="center-page">
+  {% block center_page %}
+  {% endblock %}
+</div>
+<footer>
+  <p>Django Project made by Alin Serban Caia, Anthony Painchaud, Asli Zeybek and Susan Vuu</p>
+</footer>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/base.css' %}">

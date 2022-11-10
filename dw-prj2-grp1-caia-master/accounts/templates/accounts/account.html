@@ -1,0 +1,45 @@
+{% extends "../base/base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/base.css' %}">
+
+{% block page_title %}
+<h2>Your Account Page</h2>
+{% endblock %}
+
+{% block center_page %}
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <img src="{% static request.user.customer.profile_picture.url %}" alt="Profile picture">
+
+  <div>
+    {{form.username.label}}
+    {{form.username}}
+  </div>
+  <div>
+    {{form.first_name.label}}
+    {{form.first_name}}
+  </div>
+  <div>
+    {{form.last_name.label}}
+    {{form.last_name}}
+  </div>
+  <div>
+    {{form.email.label}}
+    {{form.email}}
+  </div>
+  <p>Account balance: {{request.user.customer.account_cost}}$</p>
+
+  <div>
+    New profile picture: {{form.profile_picture}}
+  </div>
+
+  <input type="submit" name="updateCustomer" value="Save changes">
+
+  <div class="">
+    <a href="change-password">Change password</a>
+  </div>
+</form>
+<div class="link-button">
+  <a href="{% url 'accounts:account-item-list' %}">Your items</a>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "../base/base.html" %}
+{% block center_page %}
+<form action='.' method='POST'>{% csrf_token %}
+  {% if object.price < user.customer.account_cost %}
+  <h1>Do you want to buy the item "{{ object.item_name }}"?</h1>
+  <p>You have {{user.customer.account_cost}}$ and this costs {{object.price}}$</p>
+  <p><input type='submit' value='Yes' /> <a href='../'>Cancel</a></p>
+
+  {% else %}
+  <p>You cannot afford this item at {{object.price}}$ with {{user.customer.account_cost}}$</p>
+  {% endif%}
+
+</form>
+{% endblock %}

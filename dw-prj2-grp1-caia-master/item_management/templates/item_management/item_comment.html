@@ -1,0 +1,10 @@
+{% extends "../base/base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/base.css' %}">
+
+{% block center_page %}
+<form action='.' method='POST'>{% csrf_token %}
+    {{ form.as_p }}
+    <input type='submit' value='Save' />
+</form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "../base/base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/base.css' %}">
+
+{% block center_page %}
+<form action='.' method='POST'>{% csrf_token %}
+  <h1>Do you want to delete the item "{{ object.item_name }}"?</h1>
+  <p><input type='submit' value='Yes' /> <a href='../'>Cancel</a></p>
+
+</form>
+{% endblock %}

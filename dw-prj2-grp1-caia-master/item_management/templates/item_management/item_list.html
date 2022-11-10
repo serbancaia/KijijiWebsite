@@ -1,0 +1,16 @@
+{% extends "../base/base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/base.css' %}">
+
+{% block center_page %}
+<ul>
+  {% for instance in object_list %}
+  <li>{% if instance.image %}
+    <img src="{% static instance.image.url %}" alt="Item picture">
+    {% else %}
+    <img src="{% static 'images/no-item.png' %}" alt="Item picture">
+    {% endif %} - Owner: {{instance.owner}} - item name: {{instance.item_name}} - price:{{instance.price}}$ - {{instance.votes}} like{{ instance.votes|pluralize }} - <a href="{{instance.get_absolute_url}}">Detail</a></li>
+  <hr>
+  {% endfor %}
+</ul>
+{% endblock %}

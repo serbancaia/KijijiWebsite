@@ -1,0 +1,19 @@
+{% extends "../base/base.html" %}
+{% block page_title %}
+<h2>Home Page</h2>
+{% endblock %}
+
+{% block center_page %}
+<article>
+  <h3>Welcome!</h3>
+  <p>Search and shop for any item you please</p>
+</article>
+<section>
+  {% include 'home/item_list.html' %}
+  {% block item_list %}
+  {% endblock %}
+</section>
+{% endblock %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/base.css' %}">

@@ -1,0 +1,105 @@
+*{
+    margin: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: Arial;
+    font-size: 18px;
+}
+
+nav{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+footer{
+    height: 10%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #9370d8;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+}
+
+body{
+    background-image: url("../images/pipes.png")
+}
+
+button{
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: geneva;
+}
+
+img{
+    height: 100px;
+    width: 100px;
+}
+
+h1{
+    padding: 20px;
+    color: Black;
+    font-family: verdana;
+    font-size: 32px;
+}
+
+h2{
+    color: Black;
+    margin-top: 20px;
+}
+
+h3{
+    color: #7047c7;
+    margin-bottom: 10px;
+}
+
+.header-element{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.link-button{
+    margin-top: 30px;
+    padding: 10px;
+    position: relative;
+    border-style: double;
+    border-color: #7a6ddd;
+    background-color: #c4d0ff;
+}
+
+ul{
+    height:400px;
+    width: 92%;
+    position: relative;
+    overflow: hidden;
+    overflow-y:scroll;
+}
+
+#detail_ul{
+    height:200px;
+}
+
+#blog_ul{
+    height:400px;
+}
+
+.comment{
+    margin-bottom: 20px;
+}
+
+#center-page{
+    padding: 30px;
+    height: 60%;
+    background-color: #eef6fa;
+    text-align: center;
+}
+
+#site-header{
+    height: 30%;
+    margin-top: 20px;
+    background-color: mediumpurple;
+    border-radius: 5px;
+    text-align: center;
+}

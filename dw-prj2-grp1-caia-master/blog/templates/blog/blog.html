@@ -1,0 +1,18 @@
+{% extends "../base/base.html" %}
+
+{% block page_title %}
+<h2>{{ blog.owner }}'s Blog</h2>
+{% endblock %}
+
+{% block center_page %}
+    <ul id="blog_ul">
+        {% for entry in blog.entry_set.all %}
+        <div class="comment">
+            <li>{{ entry }}</li>
+        </div>
+        {% endfor %}
+    </ul>
+    {% if user.is_authenticated %}
+        <a href="{% url 'blog:add-entry' blog.id %}" class="link-button">Comment on Blog</a>
+    {% endif %}
+{% endblock %}
